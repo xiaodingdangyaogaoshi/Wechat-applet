@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/wxDrawer/index",
+    "pages/logs/logs",
+    "pages/couse/couse",
+    "pages/weibo,weobo",
+    "pages/zhibo/zhibo",
+    "pages/mine/mine",
+    "pages/faxian/faxian",
+    "pages/newsdetailed/newdetailed"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "用镜头探索世界",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#000",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "seletedColor": "#1AAD16",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现",
+        "iconPath": "images/icon/diqiu.png",
+        "selectedIconPath": "images/icon/diqiuover.png"
+      },
+      {
+        "pagePath": "pages/couse/couse",
+        "text": "美图",
+        "iconPath": "images/icon/tupian.png",
+        "selectedIconPath": "images/icon/tupianover.png"
+      },
+      {
+        "pagePath": "pages/zhibo/zhibo",
+        "text": "直播",
+        "iconPath": "images/icon/zhibo.png",
+        "selectedIconPath": "images/icon/zhiboover.png"
+      }
+    ]
+  },
+  "debug": false
+}

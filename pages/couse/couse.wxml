@@ -1,0 +1,15 @@
+<!--pages/couse/couse.wxml-->
+<view class='page_video'>
+ 
+  <view class='page_video_bd'>
+    <view class='section section_gap'>
+      <view class='body-view' style='text-align:center;'>
+        <video id='myVideo' src='{{src}}'     binderror ="videoErrorCallback" danmu-list="{{danmulist}}" enable-danmu danmu-btn controls></video>
+      </view>
+    </view>
+    <view class='btn-area'>
+      <input placeholder='输入弹幕内容' bindblur='bindInputBlur'/>
+      <button bindtap='bindSendDanmu'>发送弹幕</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+<view class="mpage {{!ui.tStart? 'withAnimate': ''}}" style="left:{{ui.offsetLeft}}px;width: {{ui.windowWidth}}px" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" bindtap="handlerPageTap">
+  <scroll-view bindscroll="handlerScroll" scroll-y style="height: 100%;">
+    <view class="search">
+<swiper  style ="height :350rpx" indicator-dots="true" autoplay="true" interval="1000" duration="500"circular="true">
+<block wx:for="{{imageUrls}}">
+  <swiper-item>
+    <image src="{{item}}" class='slide-image'/>
+  </swiper-item>
+</block>
+</swiper>
+<view class='news_list'>
+  <view class='eachline' wx:for="{{news}}" wx:key="*this"data-newsid="{{item.newsid}}" bindtap="detail">
+    <view class='wenben'>
+      <view class='news_biaoti'>
+      {{item.newstittle}}
+      </view>
+      <view class='news_laiyuan_riqi'> 
+         <text space='emsp'>{{item.authorname}}  {{item.createtime}}  </text>        </view>
+      <image class='news_coverimage' src="{{item.coverimage}}"></image>
+     
+    </view>
+  </view>
+</view>
+</view>
+  </scroll-view>
+</view>
+<view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" class="user" style="width: {{ui.menuWidth}}px">
+   <view style="width: {{ui.menuWidth}}px;left:{{-ui.menuWidth/3 + ui.offsetLeft/3}}px" class="user-box {{!ui.tStart? 'withAnimate': ''}}">
+     <view class="user-face-wrapper">
+     <image class="user-face" src="{{userInfo.avatarUrl}}"></image>
+     </view>
+     <view wx:for="123" wx:key="unique" class="one-menu">
+        <text>{{userInfo.nickName}}</text>
+     </view>
+   </view>
+</view>
