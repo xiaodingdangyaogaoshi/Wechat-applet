@@ -47,19 +47,7 @@ message-group{
   -ms-perspective: 1000;
   perspective: 1000;
 }
-.search {
-  background: white;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20rpx;
-}
-.search .avatar {
-  padding: 30rpx;
-}
-.search .avatar image {
-  width: 50rpx;
-	height: 50rpx;
-}
+
 
 .item {
   display: flex;
@@ -110,3 +98,57 @@ message-group{
   color: white;
   font-size: 38rpx;
 }
+.news_list{
+    margin:  auto;
+    width:100%;
+    height:80px;
+    border-bottom:1px solid #f7f7f7;
+    clear:both;
+}
+.news_coverimage{
+   width:30%;
+  height:80rpx;
+  float: right;
+
+}
+
+.newstitle{
+  padding: 10px;
+    font-size:26px;
+    line-height: 22px;
+    color:#010101;
+
+}
+.list_preinfo{
+  color: #cecece;
+  font-size: 11px;
+}
+.list_title{
+  color: #545454;
+  padding-top:3px;
+  padding-bottom: 3px;
+  display: block;
+  font-size: 18px;
+}
+.list{
+  margin: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0px 2px 5px #efefef;
+}
+.list_tag{
+  display: inline;
+  padding: 0.1em 0.3em 0.1em 0.3em;
+  margin-right: 3px;
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+  color: #626262;
+  font-weight: normal;
+}
+

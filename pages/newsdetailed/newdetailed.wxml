@@ -1,8 +1,11 @@
 <!--pages/newsdetailed/newdetailed.wxml-->
 <view class='news_detail'>
   <view class='new_detail_hd' wx:for="{{newsdetail}}" wx:key="*this">
-  <view class='new_detail_sure' wx:if="{{item.newsid}}">
-  <text>{{item.newscontent}}</text>
+    <view class='new_detail_sure' wx:if="{{item.newsid}}">
+      <text class='aritcle-title'>{{item.newstittle}}</text>
+      <image class='coverimage' src='{{item.coverimage}}'></image>
+      <text class='aritcle-content'space='emsp'>  {{item.newscontent}}</text>
+    </view>
   </view>
-  </view>
+  
 </view>

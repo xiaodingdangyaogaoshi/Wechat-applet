@@ -6,12 +6,13 @@ const FAST_SPEED_EFF_Y = 50;
 var app = getApp()
 Page({
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userInfo: {
       avatarUrl: "",//用户头像
       nickName: "",//用户昵称
     },
     imageUrls: [
-      '../../static/photo.jpeg',
+      '../../static/photo.jpg',
       '../../static/photo2.jpg',
       '../../static/photo3.jpg'
     ],
@@ -25,6 +26,8 @@ Page({
       tStart: true
     }
   },
+
+  
   /**
      * 进行详情页的跳转
      */
@@ -44,33 +47,48 @@ Page({
     /**
      * 获取用户信息
      */
-    wx.getUserInfo({
-      success: function (res) {
-        console.log(res);
-        var avatarUrl = 'userInfo.avatarUrl';
-        var nickName = 'userInfo.nickName';
-        that.setData({
-          [avatarUrl]: res.userInfo.avatarUrl,
-          [nickName]: res.userInfo.nickName,
-        })
+    //查看是否授权
+    console.log("执行到检查是否授权")
+    wx.getSetting({
+      success:function(res){
+        if(res.authSetting['scope.userInfo']){
+          //已经授权,可以直接调用getuserInfo获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res);
+              var avatarUrl = 'userInfo.avatarUrl';
+              var nickName = 'userInfo.nickName';
+              that.setData({
+                [avatarUrl]: res.userInfo.avatarUrl,
+                [nickName]: res.userInfo.nickName,
+              })
+              console.log(res.userInfo.avatarUrl)
+            }
+          })
+        }
       }
     })
+    
   
     wx.request({
-      url: 'http://211.87.227.226:8089/news/wx_getListPaging',
+      url: 'http://127.0.0.1:5000',
       success: function (res) {
         console.log(res)
-        var recs = res.data.recs;
+        var recs = res.data;
+        
         var temp_news_list = [];
         for (var i in recs) {
           var temp_news = {};
-          temp_news.newstittle = recs[i].NewsTitle;
+        
+          temp_news.newstittle = recs[i].NewsTittle;
           temp_news.newscontent = recs[i].NewsContent;
           temp_news.coverimage = recs[i].CoverImage;
           temp_news.newsid = recs[i].NewsID;
           temp_news.authorname = recs[i].AuthorName;
-          temp_news.createtime = recs[i].CreateTime;
+          temp_news.createtime = recs[i].Creattime;
           temp_news_list.push(temp_news);
+          
+          
         }
         that.setData({
           news: temp_news_list
@@ -87,6 +105,15 @@ Page({
       this.setData({ ui: this.data.ui })
     } catch (e) {
     }
+  },
+  bindGetUserInfo:function(e){
+    console.log(e.detail.userInfo)
+    var avatarUrl = 'userInfo.avatarUrl';
+    var nickName = 'userInfo.nickName';
+    that.setData({
+      [avatarUrl]: res.userInfo.avatarUrl,
+      [nickName]: res.userInfo.nickName,
+    })
   },
   handlerStart(e) {
     let { clientX, clientY } = e.touches[0];

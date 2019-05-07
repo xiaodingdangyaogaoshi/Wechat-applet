@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/wxDrawer/index",
+   
     "pages/logs/logs",
     "pages/couse/couse",
     "pages/weibo,weobo",

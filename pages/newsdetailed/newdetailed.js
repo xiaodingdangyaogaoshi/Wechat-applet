@@ -5,17 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+    count:0,
     newsdetail: [
-
     ],
     newsnumber:undefined
 
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx: wx.showLoading({
+      title: '加载中',
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+    wx: setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
     var that = this;
     var postID=options.newid;
     console.log("详情页接收到的文章的编号"+postID);
@@ -29,6 +39,7 @@ Page({
         var recs = res.data.recs;
         var temp_news_list = [];
         for (var i in recs) {
+          if(recs[i].NewsID==postID){
           var temp_news = {};
           temp_news.newstittle = recs[i].NewsTitle;
           temp_news.newscontent = recs[i].NewsContent;
@@ -37,6 +48,7 @@ Page({
           temp_news.authorname = recs[i].AuthorName;
           temp_news.createtime = recs[i].CreateTime;
           temp_news_list.push(temp_news);
+        }
         }
         console.log("详情页接收到的文章的编号" + postID);
         that.setData({
@@ -79,7 +91,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx: wx.showLoading({
+      title: '加载中',
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+    wx: setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
   },
 
   /**

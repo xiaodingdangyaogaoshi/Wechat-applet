@@ -1,0 +1,8 @@
+
+<view class='loading-container'>
+  <image class="loading-image" style="" mode="scaleToFill" src="https://cdn-usa.skypixel.com/uploads/usa_files/photo/image/3210d8c5-6166-435d-ac45-cfe1ee22b2e8.jpg@!1920"></image>
+</view>
+<view class="enter-container">
+  <button class="enter-button" type='primary' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 
+  </button>
+</view>
